@@ -9,3 +9,6 @@
 #4- Special characters, numbers and capital letters can be changed from the controller.
 
 #5- No installation needed. Don't forget to edit the location of CSS files.
+
+
+![alt text](https://i.hizliresim.com/6hdCl1.png)
