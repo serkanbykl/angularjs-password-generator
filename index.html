@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Password Generator</title>
+  </head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="public/css/bootstrap.min.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="public/css/style.css" />
+  <!-- FontAwesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+  />
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <body>
+    <!-- AngularJS Controller -->
+    <div ng-app="pgApp" ng-controller="PasswordGeneratorController">
+      <!-- Container -->
+      <div class="container">
+        <!-- Main Wrapper -->
+        <div class="col-md-12 main-wrapper">
+          <!-- Title Row -->
+          <div class="row offset-1">
+            <div
+              class="col-md-10 col-sm-10 title-box title-font linear-background align-items-center d-flex justify-content-center"
+            >
+              <span>Password Generator <i class="fa fa-key"></i></span>
+            </div>
+          </div>
+          <!-- End Title Row -->
+          <!-- Sub Title Row -->
+          <div class="row offset-1">
+            <div
+              class="col-md-10 col-sm-10 mini-title-box title-font linear-background align-items-center d-flex justify-content-center"
+            >
+              <span>Password Generator Tool <i class="fa fa-key"></i></span>
+            </div>
+          </div>
+          <!-- End Sub Title Row -->
+          <!-- Content Row -->
+          <div class="row offset-1">
+            <!-- Content Column -->
+            <div class="col-md-7">
+              <!-- Password Length Row -->
+              <div class="row content-row">
+                <div class="col-md-6">
+                  <span
+                    ><i class="fa fa-arrows-alt-h"></i> Password Length:</span
+                  >
+                </div>
+                <div class="col-md-6">
+                  <input
+                    ng-model="length"
+                    type="range"
+                    id="range"
+                    min="6"
+                    max="64"
+                    class="slider"
+                  />
+                  {{length}}
+                </div>
+              </div>
+              <!-- End Password Length Row -->
+              <!-- Special Char Row -->
+              <div class="row content-row">
+                <div class="col-md-6">
+                  <span
+                    ><i class="fa fa-percent"> </i> Include Special
+                    Characters:</span
+                  >
+                </div>
+                <div class="col-md-6">
+                  <input
+                    ng-model="specialChar"
+                    class=""
+                    type="checkbox"
+                    value=""
+                    id="incSpecical"
+                  />
+                  <label class="form-check-label" for="incSpecical">
+                    ( %@_ )
+                  </label>
+                </div>
+              </div>
+              <!-- End Special Char Row -->
+              <!-- Uppercase Char Row -->
+              <div class="row content-row">
+                <div class="col-md-6">
+                  <span
+                    ><i class="far fa-caret-square-up"> </i> Include Uppercase
+                    Characters:</span
+                  >
+                </div>
+                <div class="col-md-6">
+                  <input
+                    ng-model="uppercase"
+                    class=""
+                    type="checkbox"
+                    value=""
+                    id="incUppercase"
+                  />
+                  <label class="form-check-label" for="incUppercase">
+                    ( ABC )
+                  </label>
+                </div>
+              </div>
+              <!-- End Uppercase Char Row -->
+              <!-- Number Row -->
+              <div class="row content-row">
+                <div class="col-md-6">
+                  <span
+                    ><i class="fa fa-sort-numeric-up-alt"> </i> Include
+                    Numbers:</span
+                  >
+                </div>
+                <div class="col-md-6">
+                  <input
+                    ng-model="number"
+                    class=""
+                    type="checkbox"
+                    value=""
+                    id="incNumber"
+                  />
+                  <label class="form-check-label" for="incNumber">
+                    ( 123 )
+                  </label>
+                </div>
+              </div>
+              <!-- End Number Row -->
+              <!-- Generate Button Row -->
+              <div class="row content-row">
+                <div class="col-md-12 text-center">
+                  <button
+                    ng-click="generateRandomPassword(length,uppercase,number,specialChar)"
+                    class="btn linear-background text-white"
+                  >
+                    <i class="fa fa-spell-check"> </i> Generate Password
+                  </button>
+                </div>
+              </div>
+              <!-- End Generate Button Row -->
+              <!-- Result & Copy Row -->
+              <div class="row text-center">
+                <div class="col-md-8 content-row">
+                  <input
+                    id="password"
+                    ng-model="password"
+                    class="btn result-box"
+                  />
+                </div>
+                <div class="col-md-3 content-row">
+                  <button
+                    class="btn linear-background text-white"
+                    ng-click="copyPassword()"
+                  >
+                    <i ng-show="!copyStatus" class="far fa-copy"></i>
+                    <i ng-show="copyStatus" class="fa fa-check"></i> Copy
+                    Password
+                  </button>
+                </div>
+              </div>
+              <!-- End Result & Copy Row -->
+            </div>
+            <!-- End Content Column -->
+            <!-- Ads Column -->
+            <div class="col-md-3">
+              <div class="row content-row">
+                <div class="col-md-12 text-center">
+                  ADS
+                  <img src="public/img/ads.jpg" class="img-fluid" alt="" />
+                </div>
+              </div>
+            </div>
+            <!-- End Ads Column -->
+          </div>
+          <!-- End Content Row -->
+        </div>
+        <!-- End Main Wrapper -->
+      </div>
+      <!-- End Container -->
+    </div>
+    <!-- End AngularJS Controller -->
+
+    <script src="controller/generator.ctrl.js"></script>
+  </body>
+</html>
